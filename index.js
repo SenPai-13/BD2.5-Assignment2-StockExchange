@@ -189,7 +189,7 @@ app.get('/stocks/sort/pricing', (req, res) => {
   } else {
     res.json();
   }
-  res.json(sortedStocks);
+  res.json({stocks : sortedStocks});
 });
 
 // Endpoint 2: Get the stocks sorted based on their Growth
@@ -209,7 +209,7 @@ app.get('/stocks/sort/growth', (req, res) => {
   } else {
     res.json();
   }
-  res.json(sortedStocks);
+  res.json({stocks : sortedStocks});
 });
 
 // Endpoint 3: Filter the stocks based on the 2 Stock Exchange (NSE. and BSE)
@@ -219,7 +219,7 @@ function filterByExchange(stock, exchg) {
 app.get('/stocks/filter/exchange', (req, res) => {
   let exchg = req.query.exchange;
   sortedStocks = stocks.filter((stock) => filterByExchange(stock, exchg));
-  res.json(sortedStocks);
+  res.json({stocks : sortedStocks});
 });
 
 // Endpoint 4: Filter the stocks based on the Industrial Sector
@@ -229,7 +229,7 @@ function filterByExchange(stock, ind) {
 app.get('/stocks/filter/industry', (req, res) => {
   let ind = req.query.industry;
   sortedStocks = stocks.filter((stock) => filterByExchange(stock, ind));
-  res.json(sortedStocks);
+  res.json({stocks : sortedStocks});
 });
 
 // Endpoint 5: Send all available stocks
