@@ -214,7 +214,7 @@ app.get('/stocks/sort/growth', (req, res) => {
 
 // Endpoint 3: Filter the stocks based on the 2 Stock Exchange (NSE. and BSE)
 function filterByExchange(stock, exchg) {
-  return stock.exchange === exchg;
+  return stock.exchange == exchg;
 }
 app.get('/stocks/filter/exchange', (req, res) => {
   let exchg = req.query.exchange;
