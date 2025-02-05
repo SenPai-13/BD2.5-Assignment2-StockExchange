@@ -214,7 +214,7 @@ app.get('/stocks/sort/growth', (req, res) => {
 
 // Endpoint 3: Filter the stocks based on the 2 Stock Exchange (NSE. and BSE)
 function filterByExchange(stock, exchg) {
-  return stock.exchange == exchg;
+  return stock.exchange === exchg;
 }
 app.get('/stocks/filter/exchange', (req, res) => {
   let exchg = req.query.exchange;
@@ -223,12 +223,12 @@ app.get('/stocks/filter/exchange', (req, res) => {
 });
 
 // Endpoint 4: Filter the stocks based on the Industrial Sector
-function filterByExchange(stock, ind) {
+function filterByIndustry(stock, ind) {
   return stock.industry === ind;
 }
 app.get('/stocks/filter/industry', (req, res) => {
   let ind = req.query.industry;
-  sortedStocks = stocks.filter((stock) => filterByExchange(stock, ind));
+  sortedStocks = stocks.filter((stock) => filterByIndustry(stock, ind));
   res.json({stocks : sortedStocks});
 });
 
